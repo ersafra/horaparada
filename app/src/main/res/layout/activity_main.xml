@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ersafra.horaparada05.MainActivity">
+
+    <Button
+        android:id="@+id/btnCalculo"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="230dp"
+        android:onClick="abreTelaCalculo"
+        android:text="Diarias"
+        android:textSize="12sp"
+        ads:icon="@drawable/ic_calculate"
+        ads:iconGravity="textTop"
+        ads:iconPadding="8dp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/common_google_signin_btn_text_dark_disabled"
+        app:strokeWidth="3dp" />
+
+    <Button
+        android:id="@+id/btnCubagem"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="230dp"
+        android:onClick="abreTelaCalculo"
+        android:text="Cubagem"
+        android:textSize="12sp"
+        ads:icon="@drawable/ic_menu_24"
+        ads:iconGravity="textTop"
+        ads:iconPadding="8dp"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/common_google_signin_btn_text_dark_disabled"
+        app:strokeWidth="3dp" />
+
+    <Button
+        android:id="@+id/btnJornada"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="20dp"
+        android:isScrollContainer="false"
+        android:onClick="abreTelaCalculo"
+        android:text="Tabela Antt"
+        android:textSize="11sp"
+        ads:icon="@drawable/ic_dashboard"
+        ads:iconGravity="textTop"
+        ads:iconPadding="8dp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/btnCalculo"
+        app:strokeColor="@color/common_google_signin_btn_text_dark_disabled"
+        app:strokeWidth="3dp" />
+
+    <Button
+        android:id="@+id/btnInss"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:onClick="abreTelaCalculo"
+        android:text="INSS"
+        android:textSize="12sp"
+        ads:icon="@drawable/ic_money"
+        ads:iconGravity="textTop"
+        ads:iconPadding="8dp"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/btnCubagem"
+        app:strokeColor="@color/common_google_signin_btn_text_dark_disabled"
+        app:strokeWidth="3dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icone" />
+
+    <TextView
+        android:id="@+id/txt_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/titulo"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#EA0D0D"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-2741955499317480/1363749958"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/btnJornada">
+
+    </com.google.android.gms.ads.AdView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
