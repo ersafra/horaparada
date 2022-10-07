@@ -25,7 +25,7 @@
             android:exported="false" />
         <activity
             android:name=".TelaResultado"
-            android:exported="false" /> <!-- codigo certo  ca-app-pub-2741955499317480~1686898179 -->
+            android:exported="false" />
         <activity
             android:name=".InfoPeso"
             android:exported="false"
@@ -44,7 +44,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.permission.INTERNET" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

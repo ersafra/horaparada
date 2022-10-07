@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/actecubagem"
     android:layout_width="match_parent"
@@ -99,14 +98,14 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
 
-            <TextView
-                android:id="@+id/txtantt1"
+            <Button
+                android:id="@+id/button3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:text="Button" />
 
             <TextView
-                android:id="@+id/txtantt2"
+                android:id="@+id/txtantt1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="" />

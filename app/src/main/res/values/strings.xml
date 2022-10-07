@@ -32,7 +32,13 @@
     <string name="baca">Base de Calculo</string>
     <string name="spinner_title">Seleciona a Tabela::</string>
     <string name="selected_item">Selecionou:</string>
-    <string name="ccd">Total = (Deslocamento (CCD R$*Km)+ Carga e Descarga(CC))</string>
+    <string name="ccd">Total = (CCD R$*Km)+(CC))</string>
+    <string name="title_home">ANTT</string>
+    <string name="title_dashboard">CUBAGEM</string>
+    <string name="title_notifications">INSS</string>
+    <string name="title_profile">DIARIAS</string>
+    <string name="banner_ad">BANNER AD</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string-array name="spinner">
         <item>Tabela A - Lotação</item>
         <item>Tabela B - Automotor</item>

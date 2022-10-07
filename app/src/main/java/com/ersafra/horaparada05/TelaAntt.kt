@@ -1,12 +1,18 @@
 package com.ersafra.horaparada05
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.InputDevice
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.getSystemService
 import com.ersafra.horaparada05.databinding.ActivityTelaAnttBinding
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -207,6 +213,18 @@ class TelaAntt : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        //fecha teclado
+        neixos.addTextChangedListener(object: TextWatcher{
+            override fun afterTextChanged(ed: Editable){
+            if (ed?.length == 1)
+            closekeyboard()}
+            override fun beforeTextChanged(p0: CharSequence,p1: Int,p2:Int,p3:Int){
+            }
+            override fun onTextChanged(p0: CharSequence,p1: Int,p2:Int,p3:Int){
+            }
+        })
+        //
+
         //--admod--//
         MobileAds.initialize(this) {}
         val adRequest = AdRequest.Builder().build()
@@ -264,7 +282,13 @@ class TelaAntt : AppCompatActivity() {
             }*/
         }
 
-
+ private fun closekeyboard(){
+     val view:View? = currentFocus
+     view?.let{
+         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+         imm.hideSoftInputFromWindow(it.windowToken,0)
+     }
+ }
 
     private fun nTw(view: View) {
     try {
