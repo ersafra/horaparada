@@ -120,12 +120,10 @@ class TelaDiarias : AppCompatActivity() {
         val dec = DecimalFormat("R$#,##0.00")
         val vcmt = dec.format(cmt)
 
-        //("O período apurado foi de $valnhora minutos, com valor de $diadiv, por minuto parado. O valor a receber é de : $vcmt.").also { binding.dtxt1.text = it }
-
         ("Capacidade de carga $diaria1 toneladas\n").also { binding.dtxt.text = it }
         ("Tempo de espera: $dias  dia(s) ,$horas  hora(s) e $minutos  minuto(s)\n").also { binding.dtxt1.text = it }
-        ("O valor da hora para calculo é de $hantt.\n").also { binding.dtxt2.text = it }
-        ("Formula = Cap. x Nºhoras x R$2,12\n").also { binding.dtxt3.text = it }
+        ("O valor da hora para calculo é de $hantt\n").also { binding.dtxt2.text = it }
+        ("Formula = Cap. x Nºhoras x R$ 2,12\n").also { binding.dtxt3.text = it }
         ("Valor apurado da(s) diaria(s)\n").also { binding.dtxt4.text = it }
         ("   $vcmt   ").also { binding.dtxt5.text = it }
 

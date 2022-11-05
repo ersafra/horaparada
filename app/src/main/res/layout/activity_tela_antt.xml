@@ -41,7 +41,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/distancia"
-                    android:layout_width="match_parent"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:hint="Distancia"
                     android:inputType="numberDecimal" />
@@ -58,7 +58,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/neixos"
-                    android:layout_width="match_parent"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:hint="Eixos"
                     android:inputType="numberDecimal" />
@@ -78,6 +78,13 @@
                 android:text="@string/ccd"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/txtfra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnantt"
@@ -99,10 +106,10 @@
                 android:textColor="@color/black"/>
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnFra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="fracionado" />
 
             <TextView
                 android:id="@+id/txtantt1"

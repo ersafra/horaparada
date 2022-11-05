@@ -1,5 +1,6 @@
 package com.ersafra.horaparada05
 
+import android.content.Context
 import android.icu.text.NumberFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +18,7 @@ import java.text.DecimalFormat
 
  private var mAdView: AdView? = null
  private lateinit var binding: ActivityTelaCubagemBinding
+ private val MY_SHARED_PREF_NAME = "preferencias"
 
 class TelaCubagem : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +27,7 @@ class TelaCubagem : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-
+        cubagemPref()
 //-----admob-----//
         MobileAds.initialize(this) {}
         val adRequest = AdRequest.Builder().build()
@@ -82,11 +84,17 @@ class TelaCubagem : AppCompatActivity() {
         val las = comp * lar
         val lastro = String.format("%.2f",las)
 
-        ("Metragem do Baú: $rp3 M3\n\n" +
-                "Peso Cubado Rodoviario: $resrf kg\n\n" +
-                "Peso Cubado Fracionado: $resfra kg\n\n" +
-                "Peso Cubado Aéreo: $resaf kg\n\n" +
-                "Peso Cubado Maritimo: $resmf kg\n\n" +
-                "Metragem do Lastro : $las m2").also { binding.bau.text = it }
+        ("Metragem no Baú: $rp3 m3\n\n" +
+         "Peso Cubado Rodoviario: $resrf kg\n\n" +
+         "Peso Cubado Fracionado: $resfra kg\n\n" +
+         "Metragem no Lastro : $lastro m2").also { binding.bau.text = it }
             }
+
+    private fun cubagemPref(){
+            val sharePref = this.getSharedPreferences(MY_SHARED_PREF_NAME,
+                Context.MODE_PRIVATE)
+                binding.comprimento.setText(sharePref.getString("COMKEY",""))
+                binding.altura.setText(sharePref.getString("ALTKEY",""))
+                binding.largura.setText(sharePref.getString("LARKEY",""))
+    }
 }

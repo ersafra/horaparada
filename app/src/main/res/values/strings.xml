@@ -39,11 +39,14 @@
     <string name="title_profile">DIARIAS</string>
     <string name="banner_ad">BANNER AD</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="tonkey">Capacidade de carga</string>
+    <string name="palkey">Capacidade de Paletes</string>
+    <string name="gravar">Gravar</string>
+    <string name="preco">Valor pago</string>
     <string-array name="spinner">
         <item>Tabela A - Lotação</item>
         <item>Tabela B - Automotor</item>
         <item>Tabela C - Lotação-Alto Desempenho</item>
         <item>Tabela D - Automotor-Alto Desempenho</item>
-
     </string-array>
 </resources>

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.InputDevice
@@ -17,13 +18,16 @@ import com.ersafra.horaparada05.databinding.ActivityTelaAnttBinding
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.android.synthetic.main.activity_meus_dados.*
 import kotlinx.android.synthetic.main.activity_tela_antt.*
 import java.text.DecimalFormat
 import kotlin.Any as string
 
 
 class TelaAntt : AppCompatActivity() {
+
 
     val DEC = DecimalFormat("R$ #,##0.00")
     var  recebe : String? = null
@@ -205,13 +209,18 @@ class TelaAntt : AppCompatActivity() {
 
     private lateinit var binding: ActivityTelaAnttBinding
     private var mAdViewTC: AdView? = null
-
+    private val MY_SHARED_PREF_NAME = "preferencias"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTelaAnttBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
+
+
+
+        dadosRecuperados()
+
+        binding.btnFra.setOnClickListener{ abreTelaFra() }
 
         //fecha teclado
         neixos.addTextChangedListener(object: TextWatcher{
@@ -281,8 +290,20 @@ class TelaAntt : AppCompatActivity() {
                 eixo2()
             }*/
         }
+    private fun abreTelaFra(){
+        val tabelaantt = binding.txtfra.text.toString()
+        val distanciaantt = binding.distancia.text.toString()
 
- private fun closekeyboard(){
+        val intent = Intent(this,Fracionado::class.java)
+        intent.putExtra("tabelaantt", tabelaantt)
+        intent.putExtra("distanciaantt",distanciaantt)
+
+        startActivity(intent)
+    }
+
+
+
+    private fun closekeyboard(){
      val view:View? = currentFocus
      view?.let{
          val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -299,8 +320,9 @@ class TelaAntt : AppCompatActivity() {
     }
 }
 
-fun eixo2(){
+    fun eixo2(){
     //--pegao eixo--//
+
     val ei = binding.neixos.text.toString()
     var eixos: string = ei.toInt()
    //--fim do eixo--//--pega a distancia
@@ -905,98 +927,120 @@ fun eixo2(){
     val TCGP09 = DEC.format(SCGP09)
     //--fim--//
   when (eixos) {
-      2 -> binding.txtantt.text =
-          "Granel sólido  = $TGS02\n" +
-                  "Ganel Líquido  = $TGL02\n" +
-                  "Frigorificada ou Aquecida = $TFA02\n" +
-                  "Conteinerizada = $TCO02\n" +
-                  "Carga Geral = $TCG02\n" +
-                  "Neogranel = $TNE02\n" +
-                  "Perigosa (Granel Sólida) = $TPGS02\n" +
-                  "Perigosa (Granel Líquido) = $TPGL02\n" +
-                  "Perigosa (Frigorifica) = $TPFA02\n" +
-                  "Perigosa (Conteinerizada) = $TPCO02\n" +
-                  "Perigosa (Carga Geral) = $TPCG02\n" +
-                  "Carga Granel Pressurizada = $TCGP02\n"
-      3 -> binding.txtantt.text =
-          "Granel sólido  = $TGS03\n" +
-                  "Ganel Líquido  = $TGL03\n" +
-                  "Frigorificada ou Aquecida = $TFA03\n" +
-                  "Conteinerizada = $TCO03\n" +
-                  "Carga Geral = $TCG03\n" +
-                  "Neogranel = $TNE03\n" +
-                  "Perigosa (Granel Sólida) = $TPGS03\n" +
-                  "Perigosa (Granel Líquido) = $TPGL03\n" +
-                  "Perigosa (Frigorifica) = $TPFA03\n" +
-                  "Perigosa (Conteinerizada) = $TPCO03\n" +
-                  "Perigosa (Carga Geral) = $TPCG03\n" +
-                  "Carga Granel Pressurizada = $TCGP03\n"
-      4 -> binding.txtantt.text =
-          "Granel sólido  = $TGS04\n" +
-                  "Ganel Líquido  = $TGL04\n" +
-                  "Frigorificada ou Aquecida = $TFA04\n" +
-                  "Conteinerizada = $TCO04\n" +
-                  "Carga Geral = $TCG04\n" +
-                  "Neogranel = $TNE04\n" +
-                  "Perigosa (Granel Sólida) = $TPGS04\n" +
-                  "Perigosa (Granel Líquido) = $TPGL04\n" +
-                  "Perigosa (Frigorifica) = $TPFA04\n" +
-                  "Perigosa (Conteinerizada) = $TPCO04\n" +
-                  "Perigosa (Carga Geral) = $TPCG04\n" +
-                  "Carga Granel Pressurizada = $TCGP04\n"
-      5 -> binding.txtantt.text =
-          "Granel sólido  = $TGS05\n" +
-                  "Ganel Líquido  = $TGL05\n" +
-                  "Frigorificada ou Aquecida = $TFA05\n" +
-                  "Conteinerizada = $TCO05\n" +
-                  "Carga Geral = $TCG05\n" +
-                  "Neogranel = $TNE05\n" +
-                  "Perigosa (Granel Sólida) = $TPGS05\n" +
-                  "Perigosa (Granel Líquido) = $TPGL05\n" +
-                  "Perigosa (Frigorifica) = $TPFA05\n" +
-                  "Perigosa (Conteinerizada) = $TPCO05\n" +
-                  "Perigosa (Carga Geral) = $TPCG05\n" +
-                  "Carga Granel Pressurizada = $TCGP05\n"
-      6 -> binding.txtantt.text =
-          "Granel sólido  = $TGS06\n" +
-                  "Ganel Líquido  = $TGL06\n" +
-                  "Frigorificada ou Aquecida = $TFA06\n" +
-                  "Conteinerizada = $TCO06\n" +
-                  "Carga Geral = $TCG06\n" +
-                  "Neogranel = $TNE06\n" +
-                  "Perigosa (Granel Sólida) = $TPGS06\n" +
-                  "Perigosa (Granel Líquido) = $TPGL06\n" +
-                  "Perigosa (Frigorifica) = $TPFA06\n" +
-                  "Perigosa (Conteinerizada) = $TPCO06\n" +
-                  "Perigosa (Carga Geral) = $TPCG06\n" +
-                  "Carga Granel Pressurizada = $TCGP06\n"
-      7 -> binding.txtantt.text =
-          "Granel sólido  = $TGS07\n" +
-                  "Ganel Líquido  = $TGL07\n" +
-                  "Frigorificada ou Aquecida = $TFA07\n" +
-                  "Conteinerizada = $TCO07\n" +
-                  "Carga Geral = $TCG07\n" +
-                  "Neogranel = $TNE07\n" +
-                  "Perigosa (Granel Sólida) = $TPGS07\n" +
-                  "Perigosa (Granel Líquido) = $TPGL07\n" +
-                  "Perigosa (Frigorifica) = $TPFA07\n" +
-                  "Perigosa (Conteinerizada) = $TPCO07\n" +
-                  "Perigosa (Carga Geral) = $TPCG07\n" +
-                  "Carga Granel Pressurizada = $TCGP07\n"
-      9 -> binding.txtantt.text =
-          "Granel sólido  = $TGS09\n" +
-                  "Ganel Líquido  = $TGL09\n" +
-                  "Frigorificada ou Aquecida = $TFA09\n" +
-                  "Conteinerizada = $TCO09\n" +
-                  "Carga Geral = $TCG09\n" +
-                  "Neogranel = $TNE09\n" +
-                  "Perigosa (Granel Sólida) = $TPGS09\n" +
-                  "Perigosa (Granel Líquido) = $TPGL09\n" +
-                  "Perigosa (Frigorifica) = $TPFA09\n" +
-                  "Perigosa (Conteinerizada) = $TPCO09\n" +
-                  "Perigosa (Carga Geral) = $TPCG09\n" +
-                  "Carga Granel Pressurizada = $TCGP09\n"
-      1,8,10 -> binding.txtantt.text = "Não contemplado pela tabela"
+      2 -> binding.txtfra.text ="$SGS02"
+      3 -> binding.txtfra.text ="$SGS03"
+      4 -> binding.txtfra.text ="$SGS04"
+      5 -> binding.txtfra.text ="$SGS05"
+      6 -> binding.txtfra.text ="$SGS06"
+      7 -> binding.txtfra.text ="$SGS07"
+      9 -> binding.txtfra.text ="$SGS09"
+      1,8,10 -> binding.txtfra.text = "0"
  }
+    when (eixos) {
+        2 -> binding.txtantt.text =
+            "Granel sólido  = $TGS02\n" +
+                    "Ganel Líquido  = $TGL02\n" +
+                    "Frigorificada ou Aquecida = $TFA02\n" +
+                    "Conteinerizada = $TCO02\n" +
+                    "Carga Geral = $TCG02\n" +
+                    "Neogranel = $TNE02\n" +
+                    "Perigosa (Granel Sólida) = $TPGS02\n" +
+                    "Perigosa (Granel Líquido) = $TPGL02\n" +
+                    "Perigosa (Frigorifica) = $TPFA02\n" +
+                    "Perigosa (Conteinerizada) = $TPCO02\n" +
+                    "Perigosa (Carga Geral) = $TPCG02\n" +
+                    "Carga Granel Pressurizada = $TCGP02\n"
+        3 -> binding.txtantt.text =
+            "Granel sólido  = $TGS03\n" +
+                    "Ganel Líquido  = $TGL03\n" +
+                    "Frigorificada ou Aquecida = $TFA03\n" +
+                    "Conteinerizada = $TCO03\n" +
+                    "Carga Geral = $TCG03\n" +
+                    "Neogranel = $TNE03\n" +
+                    "Perigosa (Granel Sólida) = $TPGS03\n" +
+                    "Perigosa (Granel Líquido) = $TPGL03\n" +
+                    "Perigosa (Frigorifica) = $TPFA03\n" +
+                    "Perigosa (Conteinerizada) = $TPCO03\n" +
+                    "Perigosa (Carga Geral) = $TPCG03\n" +
+                    "Carga Granel Pressurizada = $TCGP03\n"
+        4 -> binding.txtantt.text =
+            "Granel sólido  = $TGS04\n" +
+                    "Ganel Líquido  = $TGL04\n" +
+                    "Frigorificada ou Aquecida = $TFA04\n" +
+                    "Conteinerizada = $TCO04\n" +
+                    "Carga Geral = $TCG04\n" +
+                    "Neogranel = $TNE04\n" +
+                    "Perigosa (Granel Sólida) = $TPGS04\n" +
+                    "Perigosa (Granel Líquido) = $TPGL04\n" +
+                    "Perigosa (Frigorifica) = $TPFA04\n" +
+                    "Perigosa (Conteinerizada) = $TPCO04\n" +
+                    "Perigosa (Carga Geral) = $TPCG04\n" +
+                    "Carga Granel Pressurizada = $TCGP04\n"
+        5 -> binding.txtantt.text =
+            "Granel sólido  = $TGS05\n" +
+                    "Ganel Líquido  = $TGL05\n" +
+                    "Frigorificada ou Aquecida = $TFA05\n" +
+                    "Conteinerizada = $TCO05\n" +
+                    "Carga Geral = $TCG05\n" +
+                    "Neogranel = $TNE05\n" +
+                    "Perigosa (Granel Sólida) = $TPGS05\n" +
+                    "Perigosa (Granel Líquido) = $TPGL05\n" +
+                    "Perigosa (Frigorifica) = $TPFA05\n" +
+                    "Perigosa (Conteinerizada) = $TPCO05\n" +
+                    "Perigosa (Carga Geral) = $TPCG05\n" +
+                    "Carga Granel Pressurizada = $TCGP05\n"
+        6 -> binding.txtantt.text =
+            "Granel sólido  = $TGS06\n" +
+                    "Ganel Líquido  = $TGL06\n" +
+                    "Frigorificada ou Aquecida = $TFA06\n" +
+                    "Conteinerizada = $TCO06\n" +
+                    "Carga Geral = $TCG06\n" +
+                    "Neogranel = $TNE06\n" +
+                    "Perigosa (Granel Sólida) = $TPGS06\n" +
+                    "Perigosa (Granel Líquido) = $TPGL06\n" +
+                    "Perigosa (Frigorifica) = $TPFA06\n" +
+                    "Perigosa (Conteinerizada) = $TPCO06\n" +
+                    "Perigosa (Carga Geral) = $TPCG06\n" +
+                    "Carga Granel Pressurizada = $TCGP06\n"
+        7 -> binding.txtantt.text =
+            "Granel sólido  = $TGS07\n" +
+                    "Ganel Líquido  = $TGL07\n" +
+                    "Frigorificada ou Aquecida = $TFA07\n" +
+                    "Conteinerizada = $TCO07\n" +
+                    "Carga Geral = $TCG07\n" +
+                    "Neogranel = $TNE07\n" +
+                    "Perigosa (Granel Sólida) = $TPGS07\n" +
+                    "Perigosa (Granel Líquido) = $TPGL07\n" +
+                    "Perigosa (Frigorifica) = $TPFA07\n" +
+                    "Perigosa (Conteinerizada) = $TPCO07\n" +
+                    "Perigosa (Carga Geral) = $TPCG07\n" +
+                    "Carga Granel Pressurizada = $TCGP07\n"
+        9 -> binding.txtantt.text =
+            "Granel sólido  = $TGS09\n" +
+                    "Ganel Líquido  = $TGL09\n" +
+                    "Frigorificada ou Aquecida = $TFA09\n" +
+                    "Conteinerizada = $TCO09\n" +
+                    "Carga Geral = $TCG09\n" +
+                    "Neogranel = $TNE09\n" +
+                    "Perigosa (Granel Sólida) = $TPGS09\n" +
+                    "Perigosa (Granel Líquido) = $TPGL09\n" +
+                    "Perigosa (Frigorifica) = $TPFA09\n" +
+                    "Perigosa (Conteinerizada) = $TPCO09\n" +
+                    "Perigosa (Carga Geral) = $TPCG09\n" +
+                    "Carga Granel Pressurizada = $TCGP09\n"
+        1,8,10 -> binding.txtantt.text = "Não contemplado pela tabela"
+    }
 }
+    private fun dadosRecuperados() {
+        val sharePref = this.getSharedPreferences(MY_SHARED_PREF_NAME,Context.MODE_PRIVATE)
+        //val ant_ton = sharePref.getString("TONKEY","")
+        //val ant_pal = sharePref.getString("PALKEY","")
+        //val ant_alt = sharePref.getString("ALTKEY","")
+        //val ant_com = sharePref.getString("COMKEY","")
+        //val ant_lar = sharePref.getString("LARKEY","")
+        val ant_eix = sharePref.getString("EIXKEY","")
+        binding.neixos.setText(sharePref.getString("EIXKEY",""))
+
+    }
 }//fim da classe
+

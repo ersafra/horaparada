@@ -1,7 +1,10 @@
 package com.ersafra.horaparada05
 
+import android.app.Activity
+import android.content.Context
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import java.util.ArrayList
 
@@ -23,6 +26,21 @@ object Utils {
             for (i in 0 until view.childCount) {
                 findViewsWithType(view.getChildAt(i), type, views)
             }
+        }
+    }
+}
+object Util {
+
+    @JvmStatic
+    fun showToast(c: Context, message: String) {
+        try {
+            if (!(c as Activity).isFinishing) {
+                c.runOnUiThread { //show your Toast here..
+                    Toast.makeText(c.applicationContext, message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }

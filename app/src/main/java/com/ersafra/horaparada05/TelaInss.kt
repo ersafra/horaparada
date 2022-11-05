@@ -80,12 +80,16 @@ private fun calcular(){
     val t = a-b-d-e-f
     //val total = String.format("%.2f",t)
 //--------------------------------------------//
+    val tota = (inss11+sest+senat)
+    val total = String.format("%2f",tota)
+//----------------------------------------//
     ("INSS:  (Base x 20% x 11%) :  R$ $inssfim\n").also { binding.itxt1.text = it }
     ("IRRF:  (Base x 10%) : R$ $irrfim *\n"  ).also { binding.itxt4.text = it }
     ("SEST:  (Base x 20% x 1%) : R$  $sestfim\n").also { binding.itxt2.text = it }
-    ("SENAT:  (Base x 20% x 1,5%) : R$  $senatfim\n").also { binding.itxt3.text = it }
-    ("ISS:     (Base x 5%) : $issfim **\n").also { binding.itxt5.text = it }
-    ("Valores maximos de desconto:\n").also { binding.itxt.text = it }
+    ("SENAT: (Base x 20% x 1,5%) : R$  $senatfim\n").also { binding.itxt3.text = it }
+    ("ISS:   (Base x 5%) : $issfim **\n").also { binding.itxt5.text = it }
+    //("Valores maximos de desconto:\n").also { binding.itxt.text = it }
+    ("Total: $total\n").also { binding.itxt.text = it }
 
 }
     //admob

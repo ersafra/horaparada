@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_tela_calculo.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,14 +33,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
         setupAds()
 
         binding.btnCalculo.setOnClickListener(this::abreTelaCalculo)
         binding.btnJornada.setOnClickListener(this::abreTelaAntt)
         binding.btnCubagem.setOnClickListener(this::abreTelaCubagem)
         binding.btnInss.setOnClickListener(this::abreTelaInss)
+        binding.btnDados1.setOnClickListener(this::abreTelaDados)
  } // fecha o oncreat
 //
     fun abreTelaCalculo(view: View) {
@@ -57,7 +58,9 @@ class MainActivity : AppCompatActivity() {
     fun abreTelaAntt(view: View){
         startActivity(Intent(this,TelaAntt::class.java))
     }
-
+    fun abreTelaDados(view: View){
+        startActivity(Intent(this,MeusDados::class.java))
+    }
 //menu
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

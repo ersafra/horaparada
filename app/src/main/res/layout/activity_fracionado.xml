@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/actecubagem"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
-    tools:context=".TelaCubagem"
-    tools:ignore="MergeRootFrame">
+    android:labelFor="@+id/textinput_suffix_text"
+    tools:context=".Fracionado">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/linearLayout2fra"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
@@ -33,14 +29,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
-                android:gravity="center|center_horizontal"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/quantidade"
+                    android:id="@+id/quantidadefra"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:hint="@string/quandidate"
                     android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -51,14 +45,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
-                android:gravity="center|center_horizontal"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/altura"
+                    android:id="@+id/alturafra"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:hint="@string/altura"
                     android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -75,14 +67,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
-                android:gravity="center|center_horizontal"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/comprimento"
+                    android:id="@+id/comprimentofra"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:hint="@string/comprimento"
                     android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -93,17 +83,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
-                android:gravity="center|center_horizontal"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/largura"
+                    android:id="@+id/largurafra"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:hint="@string/largura"
                     android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -112,58 +102,52 @@
             android:background="@color/white"
             android:orientation="vertical">
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/preco_text_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/preco"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/preco"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <TextView
-                android:id="@+id/bau"
+                android:id="@+id/baufra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="13dp"
                 android:textStyle="bold" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/dadoscubagem"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_weight="1"
-                android:text="voltar" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                android:text="@string/dados" />
+                android:textColor="@color/black"
+                android:textSize="13dp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonfra"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="@string/dados" />
 
     </LinearLayout>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/bannerID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-2741955499317480/3555925725"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
